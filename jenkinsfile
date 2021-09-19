@@ -1,11 +1,17 @@
 pipeline{
-
-    agent any
+    agent any   
     stages{
-        stage("sourcecode checkout from git-hub"){
+        stage("source code checkout from github"){
             steps{
-            checkout ([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HarrYx384/insuredmine.git']]])
+                checkout ([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HarrYx384/insuredmine.git']]])
+            }
         }
+        stage("docker login"){
+            steps{
+                withCredentials([string(credentialsId: 'harry', variable: 'dockerhub')]) {
+                sh 'docker login -u harry7985 -p ${dockerhub}'
+}
+            }
         }
-    }   
+    }
 }
