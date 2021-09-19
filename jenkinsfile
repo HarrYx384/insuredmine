@@ -1,4 +1,7 @@
 pipeline{
+    environment {
+     docker1 = "docker run -itd -p 1234:80 --name insuredmine harry7985/insured:latest"
+   }
     agent any   
     stages{
         stage("source code checkout from github"){
@@ -26,7 +29,6 @@ pipeline{
         }
         stage("deploy on rmeote host"){
             steps{
-                def docker1='docker run -itd -p 1234:80 --name insuredmine harry7985/insured:latest'
                 sshagent(['dockerhostr']) {
                 sh "ssh -o StrictHostKeyChecking=no  ec2-user@172.31.22.170 ${docker1}"
 }
