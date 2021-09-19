@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("source code checkout from github"){
             steps{
-                checkout ([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HarrYx384/insuredmine.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HarrYx384/trail.git']]])
             }
         }
         stage("docker login"){
