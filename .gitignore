@@ -1,4 +1,5 @@
 # Logs
+jenkinsfile
 logs
 *.log
 npm-debug.log*
