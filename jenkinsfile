@@ -1,0 +1,10 @@
+pipeline{
+
+    agent any
+    stages{
+        stage("sourcecode checkout from git-hub"){
+            checkout ([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/HarrYx384/insuredmine.git']]])
+        }
+       stage("copy sorce code to docker server")
+    }   
+}
