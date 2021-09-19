@@ -10,7 +10,7 @@ pipeline{
             steps{
                 withCredentials([string(credentialsId: 'harry', variable: 'dockerhub')]) {
                 sh 'docker login -u harry7985 -p ${dockerhub}'
-}
+ }
             }
         }
     }
