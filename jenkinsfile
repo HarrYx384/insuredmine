@@ -35,4 +35,9 @@ pipeline{
             }
         }
     }
+    post{
+            always{
+                emailext body: 'Release imp', subject: 'build fail', to: 'vikashyadava51@gmail.com'
+            }
+        }  
 }
